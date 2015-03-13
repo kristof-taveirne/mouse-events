@@ -1,0 +1,5 @@
+.iml
+.idea
+mouse-events/target
+mouse-events-demo/target
+mouse-events-demo/src/main/webapp/VAADIN/widgetsets/
