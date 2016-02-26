@@ -4,6 +4,8 @@ import com.google.gwt.event.dom.client.MouseOutEvent;
 import com.google.gwt.event.dom.client.MouseOutHandler;
 import com.google.gwt.event.dom.client.MouseOverEvent;
 import com.google.gwt.event.dom.client.MouseOverHandler;
+import com.google.gwt.user.client.Element;
+import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Widget;
 import com.vaadin.client.ComponentConnector;
 import com.vaadin.client.ServerConnector;
@@ -12,23 +14,36 @@ import com.vaadin.shared.ui.Connect;
 import org.vaadin.marcus.MouseEvents;
 
 @Connect(MouseEvents.class)
-public class MouseEventsConnector extends AbstractExtensionConnector implements MouseOverHandler, MouseOutHandler {
+public class MouseEventsConnector extends AbstractExtensionConnector implements MouseOverHandler, MouseOutHandler
+{
 
     @Override
-    protected void extend(ServerConnector serverConnector) {
+    protected void extend(ServerConnector serverConnector)
+    {
         Widget target = ((ComponentConnector) serverConnector).getWidget();
+        Element element = target.getElement();
 
+        Event.sinkEvents(element, Event.ONMOUSEOVER | Event.ONMOUSEOUT);
         target.addHandler(this, MouseOverEvent.getType());
         target.addHandler(this, MouseOutEvent.getType());
     }
 
     @Override
-    public void onMouseOver(MouseOverEvent mouseOverEvent) {
+    public void onMouseOver(MouseOverEvent mouseOverEvent)
+    {
+        console("MouseOver event!!");
         getRpcProxy(MouseEventsRPC.class).mouseOver();
     }
 
     @Override
-    public void onMouseOut(MouseOutEvent mouseOutEvent) {
+    public void onMouseOut(MouseOutEvent mouseOutEvent)
+    {
+        console("MouseOut event!!");
         getRpcProxy(MouseEventsRPC.class).mouseOut();
     }
+
+    static native void console(String text)
+    /*-{
+    console.log(text);
+    }-*/;
 }
