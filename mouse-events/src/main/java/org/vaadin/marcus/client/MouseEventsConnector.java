@@ -4,7 +4,6 @@ import com.google.gwt.event.dom.client.MouseOutEvent;
 import com.google.gwt.event.dom.client.MouseOutHandler;
 import com.google.gwt.event.dom.client.MouseOverEvent;
 import com.google.gwt.event.dom.client.MouseOverHandler;
-import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Widget;
 import com.vaadin.client.ComponentConnector;
@@ -21,9 +20,7 @@ public class MouseEventsConnector extends AbstractExtensionConnector implements 
     protected void extend(ServerConnector serverConnector)
     {
         Widget target = ((ComponentConnector) serverConnector).getWidget();
-        Element element = target.getElement();
-
-        Event.sinkEvents(element, Event.ONMOUSEOVER | Event.ONMOUSEOUT);
+        target.sinkEvents(Event.ONMOUSEOVER | Event.ONMOUSEOUT);
         target.addHandler(this, MouseOverEvent.getType());
         target.addHandler(this, MouseOutEvent.getType());
     }
@@ -44,6 +41,6 @@ public class MouseEventsConnector extends AbstractExtensionConnector implements 
 
     static native void console(String text)
     /*-{
-    console.log(text);
+        console.log(text);
     }-*/;
 }
