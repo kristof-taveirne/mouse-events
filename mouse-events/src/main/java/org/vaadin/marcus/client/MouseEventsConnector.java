@@ -28,19 +28,13 @@ public class MouseEventsConnector extends AbstractExtensionConnector implements 
     @Override
     public void onMouseOver(MouseOverEvent mouseOverEvent)
     {
-        console("MouseOver event!!");
         getRpcProxy(MouseEventsRPC.class).mouseOver();
     }
 
     @Override
     public void onMouseOut(MouseOutEvent mouseOutEvent)
     {
-        console("MouseOut event!!");
         getRpcProxy(MouseEventsRPC.class).mouseOut();
     }
 
-    static native void console(String text)
-    /*-{
-        console.log(text);
-    }-*/;
 }
