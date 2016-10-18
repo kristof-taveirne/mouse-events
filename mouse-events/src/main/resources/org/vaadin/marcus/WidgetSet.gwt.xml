@@ -6,6 +6,6 @@
 	<inherits name="com.vaadin.DefaultWidgetSet" /> 
 
 	<!-- Widget styles in public -directory -->
-	<stylesheet src="hover-events/styles.css"/>
+	<stylesheet src="mouse-events/styles.css"/>
 
 </module>
