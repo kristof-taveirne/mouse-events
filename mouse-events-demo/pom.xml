@@ -5,7 +5,7 @@
 	<groupId>org.vaadin.marcus</groupId>
 	<artifactId>mouse-events-demo</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0</version>
+	<version>1.0.2</version>
 	<name>Mouse Events Demo</name>
 
 	<properties>
