@@ -2,7 +2,7 @@
 
 This is a component extension that allows you to add mouseover and mouseout event listeners to any component.
 
-This is a fork from Marcus Hellberg's repository (https://github.com/vaadin-marcus/mouse-events.git). It fixes the issue, that hovering over layouts didn't fire any event.
+Official releases of this add-on are available at Vaadin Directory. For Maven instructions, download and reviews, go to http://vaadin.com/addon/mouse-events
 
 ## Building and running demo
 
