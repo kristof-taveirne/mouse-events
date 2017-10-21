@@ -51,6 +51,8 @@ public class DemoUI extends UI
         final MouseEvents hlMouseEvents = MouseEvents.enableFor(hl);
         hlMouseEvents.addMouseOverListener(() -> Notification.show("Over event"));
         hlMouseEvents.addMouseOutListener(() -> Notification.show("Out event"));
+        hlMouseEvents.addMouseDownListener(() -> Notification.show("Down event"));
+        hlMouseEvents.addMouseUpListener(() -> Notification.show("Up event"));
         layout.addComponent(hl);
 
         setContent(layout);
